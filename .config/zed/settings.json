@@ -7,49 +7,69 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "agent": {
-    "use_modifier_to_send": true,
-    "default_model": {
-      "provider": "mistral",
-      "model": "codestral-latest"
-    }
+  "redact_private_values": true,
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry",
+    },
+    "mistral-vibe": {
+      "type": "registry",
+    },
   },
-  "allow_rewrap": "anywhere",
-  "autosave": {
-    "after_delay": {
-      "milliseconds": 1000
-    }
-  },
-  "buffer_font_size": 15,
-  "buffer_font_family": "SpaceMono Nerd Font",
-  "buffer_line_height": "standard",
-  "icon_theme": "Material Icon Theme",
-  "indent_guides": {
-    // "coloring": "indent_aware"
-  },
-  "minimap": {
-    "show": "auto",
-    "thumb_border": "none"
+  "edit_predictions": {
+    "provider": "zed",
   },
   "outline_panel": {
     "dock": "right",
-    "indent_size": 10
   },
-  "show_whitespaces": "trailing",
-  "soft_wrap": "bounded",
+  "agent": {
+    "default_profile": "ask",
+    "default_model": {
+      "enable_thinking": false,
+      "provider": "mistral",
+      "model": "codestral-latest",
+    },
+    "favorite_models": [
+      {
+        "provider": "mistral",
+        "model": "codestral-latest",
+        "enable_thinking": false
+      }
+    ],
+    "model_parameters": [],
+  },
+  "icon_theme": "Material Icon Theme",
+  "terminal": {
+    "shell": "system",
+    "font_family": "SpaceMono Nerd Font",
+  },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
-  "terminal": {
-    "font_family": "SpaceMono Nerd Font",
-    "line_height": "standard"
+  "base_keymap": "VSCode",
+  "minimap": {
+    "show": "auto",
+    "max_width_columns": 100,
   },
+  "current_line_highlight": "gutter",
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+  "buffer_font_fallbacks": ["SpaceMono Nerd Font"],
+  "buffer_font_family": "SpaceMono Nerd Font",
+  "show_whitespaces": "trailing",
+  "ensure_final_newline_on_save": true,
+  "wrap_guides": [80, 100],
+  "preferred_line_length": 100,
+  "soft_wrap": "bounded",
+  "ui_font_size": 16,
+  "buffer_font_size": 14,
   "theme": {
     "mode": "system",
-    "light": "Github Light",
-    "dark": "Github Dark"
+    "light": "GitHub Light",
+    "dark": "GitHub Dark",
   },
-  "ui_font_size": 16,
-  "wrap_guides": [80, 100]
 }
