@@ -30,7 +30,10 @@ export EDITOR="$VISUAL"
 
 export KUBECONFIG=~/.kube/config
 
+# krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 
 # so I can use my work yubikey with ssh
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
