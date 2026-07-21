@@ -89,7 +89,7 @@ read_only = ""
 "Downloads" = ""
 "Music" = "󰝚"
 "Pictures" = ""
-"Development" = "󰲋"
+"Code" = "󰲋"
 
 [git_branch]
 disabled = false
