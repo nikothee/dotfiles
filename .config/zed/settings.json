@@ -7,21 +7,28 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cli_default_open_behavior": "existing_window",
   "project_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "git_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "redact_private_values": true,
   "agent_servers": {
     "claude-acp": {
-      "type": "registry",
-    },
-    "mistral-vibe": {
+      "default_config_options": {
+        "effort": "high",
+        "mode": "auto",
+        "model": "opus",
+      },
+      "favorite_config_option_values": {
+        "model": ["opus", "sonnet"],
+        "mode": ["plan", "acceptEdits", "auto"],
+      },
       "type": "registry",
     },
   },
@@ -40,13 +47,7 @@
       "provider": "mistral",
       "model": "codestral-latest",
     },
-    "favorite_models": [
-      {
-        "provider": "mistral",
-        "model": "codestral-latest",
-        "enable_thinking": false
-      }
-    ],
+    "favorite_models": [],
     "model_parameters": [],
   },
   "icon_theme": "Material Icon Theme",
@@ -83,4 +84,5 @@
     "light": "GitHub Light",
     "dark": "GitHub Dark",
   },
+  "use_podman": true,
 }
