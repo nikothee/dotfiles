@@ -48,3 +48,14 @@ windowcontrols:hover > button.maximize > image { background-color: #28c840; }
 windowcontrols > button.close:active > image    { background-color: #d9443e; }
 windowcontrols > button.minimize:active > image { background-color: #d99a1a; }
 windowcontrols > button.maximize:active > image { background-color: #1fa833; }
+
+/* Remove the trailing padding after the last dot */
+windowcontrols.start > button:last-child {
+  padding-right: 0;
+}
+
+/* Pull the next header bar widget closer; tune to taste */
+windowcontrols.start {
+  /* You can use negative values here as well */
+  margin-right: 0px;
+}
