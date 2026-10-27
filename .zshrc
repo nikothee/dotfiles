@@ -23,8 +23,6 @@ source $ZSH/oh-my-zsh.sh
 ################################################################################
 ### user configs
 
-alias njust="just --justfile ${HOME}/Documents/.Justfile"
-
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
@@ -37,6 +35,16 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 
 # so I can use my work yubikey with ssh
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
+################################################################################
+### aliases
+
+alias docker="podman"
+alias njust="just --justfile ${HOME}/Documents/.Justfile"
+
+dockerSHA() {
+  skopeo inspect --format '{{.Digest}}' "docker://$1"
+}
 
 ################################################################################
 ### starship prompt
