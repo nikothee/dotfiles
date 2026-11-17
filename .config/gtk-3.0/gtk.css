@@ -1,0 +1,65 @@
+/* macOS-style traffic lights for GTK3.
+   Also picked up by Electron/Chromium apps (Obsidian, Slack, ...) for their
+   window buttons. GTK3 has no `windowcontrols` node, so the dot is the
+   button itself: a solid background-color clipped round by border-radius
+   (gradients rendered blurry at 200% scaling).
+
+   The 16px icon inside would force the button to 16px, so the image gets a
+   -1px margin to let the button shrink to a 14px dot. Change min-width/height
+   and the image margin together to resize (16px - 2 x margin = dot size). */
+
+headerbar button.titlebutton,
+.titlebar button.titlebutton {
+  min-width: 14px;
+  min-height: 14px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 100%;
+  background-image: none;
+  box-shadow: none;
+  outline: none;
+  color: transparent;        /* glyph hidden until hover */
+  -gtk-icon-shadow: none;
+  -gtk-icon-transform: scale(0.6);
+}
+
+headerbar button.titlebutton image,
+.titlebar button.titlebutton image {
+  margin: -1px;
+  color: transparent;
+}
+
+/* Dot colors */
+headerbar button.titlebutton.close,    .titlebar button.titlebutton.close    { background-color: #ff5f57; }
+headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize { background-color: #febc2e; }
+headerbar button.titlebutton.maximize, .titlebar button.titlebutton.maximize { background-color: #28c840; }
+
+/* Unfocused window: grey dots */
+headerbar button.titlebutton:backdrop,
+.titlebar button.titlebutton:backdrop {
+  background-color: alpha(#808080, .35);
+}
+
+/* Hover: show glyph (GTK3 has no group node, so this is per button) */
+headerbar button.titlebutton:hover,
+.titlebar button.titlebutton:hover,
+headerbar button.titlebutton:hover image,
+.titlebar button.titlebutton:hover image {
+  color: rgba(0, 0, 0, .65);
+}
+headerbar button.titlebutton.close:backdrop:hover,    .titlebar button.titlebutton.close:backdrop:hover    { background-color: #ff5f57; }
+headerbar button.titlebutton.minimize:backdrop:hover, .titlebar button.titlebutton.minimize:backdrop:hover { background-color: #febc2e; }
+headerbar button.titlebutton.maximize:backdrop:hover, .titlebar button.titlebutton.maximize:backdrop:hover { background-color: #28c840; }
+
+/* Pressed: slightly darker */
+headerbar button.titlebutton.close:active,    .titlebar button.titlebutton.close:active    { background-color: #d9443e; }
+headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minimize:active { background-color: #d99a1a; }
+headerbar button.titlebutton.maximize:active, .titlebar button.titlebutton.maximize:active { background-color: #1fa833; }
+
+/* Spacing. Your button layout is close,minimize,maximize on the left, so
+   close is the first dot: it gets the offset from the window edge, the
+   other two get the extra gap between dots. */
+headerbar button.titlebutton.close,    .titlebar button.titlebutton.close    { margin-left: 4px; }
+headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize,
+headerbar button.titlebutton.maximize, .titlebar button.titlebutton.maximize { margin-left: 1px; }
